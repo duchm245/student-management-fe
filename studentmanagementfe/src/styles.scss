@@ -1,0 +1,41 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.my-custom-color-green {
+  background-color: green; /* Màu nền xanh */
+  color: #ffffff; /* Màu chữ trắng */
+}
+
+.my-custom-add-item {
+  float: right;
+  margin-right: 4% !important;
+  background: limegreen !important;
+}
+
+select, input {
+  border-radius: 4px;
+  border-color: CornflowerBlue;
+  border-width: 1px;
+  border-style: Solid;
+  height: 30px;
+}
+
+.btnSearch {
+  color: blue;
+  text-decoration: none;
+  font-weight: 550;
+  border: none;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.custom-inline-page {
+  padding-top: 50px;
+  display: flex;
+  align-items: center;
+}

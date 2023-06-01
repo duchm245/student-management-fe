@@ -1,0 +1,105 @@
+.custom1 {
+  float: left;
+  width: 100%;
+  margin-top: 60px;
+  //bottom: 0;
+  //display: flex;
+  //flex-direction: column;
+  //min-height: 100vh;
+
+}
+
+//#footer_0 {
+//  flex-grow: 1;
+//}
+
+#footer_1 {
+  background-color: #56a4fe;
+  width: 100%;
+  min-height: 65px;
+  position: relative;
+  padding: 10px 0 0 8px;
+  color: White;
+  font-size: 13px;
+  left: 0;
+}
+
+#footer_1 #hotline {
+  font-size: 12px;
+  padding-top: 12px;
+}
+
+#page-footer {
+  right: 11px;
+  top: 20px;
+  position: absolute;
+
+  display: flex;
+  font-size: 12px;
+  color: white;
+  padding: 5px 5px 0 5px;
+  background-color: #56a4fe;
+  height: 30px;
+  font-weight: bold;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  //align-content: center;
+  align-items: center;
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+#page-footer a {
+  color: white;
+  text-decoration: none;
+  margin-left: 5px; /* Giãn cách 5px giữa các liên kết trong mat-toolbar */
+  margin-right: 5px; /* Giãn cách 5px giữa các liên kết trong mat-toolbar */
+}
+
+.custom-table {
+  padding-left: 5px;
+  width: 100%;
+  align-content: center;
+}
+
+//.custom-td1 {
+//  alignment: right;
+//  width: 553px;
+//  font-size: 11px;
+//  font-weight: normal;
+//}
+
+td {
+  alignment: right;
+  width: 553px;
+  font-size: 11px;
+  font-weight: normal;
+}
+
+.custom-float-left {
+  float: left;
+}
+
+.custom-padding-top {
+  float: left;
+  padding-top: 6px;
+}
+
+.custom-margin-p p {
+  margin: 0;
+  color: blue;
+}
+
+.custom-margin-p p span {
+  margin: 0;
+  color: black;
+}
+
+button {
+  outline: none;
+  border: 0;
+  background: transparent;
+  color : white;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+

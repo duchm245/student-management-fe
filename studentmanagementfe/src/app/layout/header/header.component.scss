@@ -1,0 +1,74 @@
+mat-toolbar {
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+button {
+  outline: none;
+  border: 0;
+  background: transparent;
+  color : white;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.user-image {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+
+  &-icon {
+    height: 18px;
+    font-size: 16px;
+  }
+}
+
+::ng-deep {
+  .mat-menu-content {
+    width: 160px;
+  }
+}
+
+.custom-header {
+  align-content: center;
+}
+
+#navbar {
+  display: flex;
+  font-size: 13px;
+  color: white;
+  padding: 5px 5px 0 5px;
+  background-color: #56a4fe;
+  height: 30px;
+  top: 2px;
+  right: 0;
+  position: absolute;
+  font-weight: bold;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  //align-content: center;
+  align-items: center;
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+a {
+  color: white;
+  //box-sizing: border-box;
+  //padding: 0 5px;
+}
+
+.mat-toolbar a {
+  text-decoration: none; /* Loại bỏ gạch chân dưới cho các liên kết trong mat-toolbar */
+  margin-left: 5px; /* Giãn cách 5px giữa các liên kết trong mat-toolbar */
+  margin-right: 5px; /* Giãn cách 5px giữa các liên kết trong mat-toolbar */
+}
+
+
+//================
+//:host {
+//  background: #70FBFD;
+//  padding: 30px;
+//}
+

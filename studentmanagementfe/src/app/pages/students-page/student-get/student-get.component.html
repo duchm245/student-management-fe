@@ -1,0 +1,130 @@
+<div>
+  Lọc danh sách:
+  <select (change)="changeClass($event)" [(ngModel)]="classSelected">
+    <option value="0" [disabled]="true">- Lớp học -</option>
+    <option *ngFor="let clazz of listClassFromApi" value="{{clazz.id}}">
+      {{clazz.name}}
+    </option>
+  </select>
+  <select (change)="changeGender($event)" [(ngModel)]="inputSearchGender">
+    <option value="2">Giới tính</option>
+    <option value="1">Nam</option>
+    <option value="0">Nữ</option>
+  </select>
+  <select (change)="changeStatus($event)" [(ngModel)]="inputSearchStatus">
+    <option value="2">Trạng thái</option>
+    <option value="1">Hoạt động</option>
+    <option value="0">Không hoạt động</option>
+  </select>
+  <select (change)="changeSort($event)" [(ngModel)]="sortSelected">
+    <option value="id">Sắp xếp</option>
+    <option value="lastName">Theo tên</option>
+    <option value="code">Mã sinh viên</option>
+  </select>
+
+  <input [(ngModel)]="inputSearchName" placeholder="Tìm kiếm theo tên"/>
+  <button (click)="search()" class="btnSearch">Tìm kiếm</button>
+
+  <button mat-raised-button color="primary" [routerLink]="['/addStudent']"
+          style="margin-right: 4%; float: right; background: limegreen">Thêm học sinh
+  </button>
+  <br><br>
+
+  <!--    phân trang-->
+  <div>
+    <div>
+      <table>
+        <tr>
+          <th>STT</th>
+          <th>Mã sinh viên</th>
+          <th>Tên sinh viên</th>
+          <th>Giới tính</th>
+          <th>Ngày sinh</th>
+          <th>Email</th>
+          <th>SDT</th>
+          <th>Trạng thái</th>
+          <th>Lớp học</th>
+          <th>Hành động</th>
+        </tr>
+
+        <tr *ngFor="let st of listStudent | paginate: {
+          itemsPerPage: pageSize,
+          currentPage: page,
+          totalItems: count
+        }; let i = index">
+          <!--          <td>{{st.studentId}}</td>-->
+          <td>{{i + page * pageSize - pageSize + 1}}</td>
+          <td>
+            {{ st.studentCode }}
+          </td>
+          <td>
+            {{ st.studentName }}
+          </td>
+          <td>
+            <!--            {{ st.studentGender === "1" ? "Nam" : 'Nữ' }}-->
+            {{ st.studentGender}}
+          </td>
+          <!--          <td>-->
+          <!--            {{ datePipe.transform(st.studentBirthday, 'dd/MM/yyyy') }}-->
+          <!--          </td>-->
+          <td>
+            {{ st.studentBirthday }}
+          </td>
+          <!--          <td>-->
+          <!--            {{ st.studentBirthday ? datePipe.transform(st.studentBirthday, 'dd/MM/yyyy') : '' }}-->
+          <!--          </td>-->
+
+          <td>
+            {{ st.studentEmail }}
+          </td>
+          <td>
+            {{ st.studentPhone }}
+          </td>
+          <td>
+            <!-- Sử dụng ternary operator để kiểm tra và hiển thị "hoạt động" hoặc "không hoạt động" -->
+            <!--            {{st.studentStatus === "1" ? 'hoạt động' : 'không hoạt động'}}-->
+            {{st.studentStatus}}
+          </td>
+          <td>
+            {{ st.className }}
+          </td>
+          <td style="width: 280px;">
+            <button mat-icon-button color="primary" [routerLink]="['/editStudent', st.studentId]">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteStudent(st.studentId)">
+              <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-icon-button color="primary" style="background: white"
+                    (click)="openMark(st.studentId, st.classId, st.studentName, st.studentCode)">
+              <mat-icon>visibility</mat-icon>
+            </button>
+            <button mat-icon-button color="primary" style="background: white"
+                    (click)="openSelectClazzDialog2(st.studentId, st.classId)">
+              <mat-icon>safety_divider</mat-icon>
+            </button>
+          </td>
+        </tr>
+
+      </table>
+    </div>
+    <div class="custom-inline-page">
+      <div style="padding-bottom:18px ">
+        Số bản ghi
+        <select (change)="handlePageSizeChange($event)">
+          <option *ngFor="let size of pageSizes" [ngValue]="size">
+            {{ size }}
+          </option>
+        </select>
+      </div>
+      <pagination-controls
+        previousLabel="Prev"
+        nextLabel="Next"
+        [responsive]="true"
+        (pageChange)="handlePageChange($event)">
+      </pagination-controls>
+    </div>
+  </div>
+</div>
+
+

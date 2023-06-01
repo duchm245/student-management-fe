@@ -1,0 +1,19 @@
+.submit-form {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.example-form {
+  flex-basis: 45%;
+  width: 100%;
+}
+
+.example-form:last-child {
+  flex-basis: 50%;
+}
+
+.example-full-width {
+  width: 100%;
+}

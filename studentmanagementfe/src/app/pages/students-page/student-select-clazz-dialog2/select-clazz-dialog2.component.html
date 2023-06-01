@@ -1,0 +1,21 @@
+<div class="submit-form">
+  <div *ngIf="!submitted">
+    <form class="example-form" [formGroup]="newSelectClazzForm">
+      <mat-form-field class="example-full-width">
+        <mat-label>Chọn lớp:</mat-label>
+        <mat-select name="clazzId" formControlName="clazzId" [errorStateMatcher]="matcher">
+          <mat-option [value]="0">Chọn lớp</mat-option>
+          <mat-option>
+            <ngx-mat-select-search [formControl]="classFilterCtrl"></ngx-mat-select-search>
+          </mat-option>
+          <mat-option *ngFor="let clazz of listClassFromApi" [value]="clazz.id">
+            {{clazz.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </div>
+</div>
+
+<button mat-raised-button color="primary" (click)="selectClazz()" [disabled]="!newSelectClazzForm.valid" style="display: flex; justify-content: center; align-items: center; margin: 0 auto;">Xác nhận</button>
+

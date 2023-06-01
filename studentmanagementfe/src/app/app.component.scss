@@ -1,0 +1,41 @@
+//* {
+//  margin: 0;
+//  padding: 0;
+//}
+//
+//:host {
+//  display: flex;
+//  flex-direction: column;
+//  height: 100%;
+//}
+//
+//mat-drawer {
+//  //width: 260px;
+//  width: 337px;
+//  background: #fafafa;
+//  border: none;
+//}
+//
+//mat-drawer-container {
+//  height: 100%;
+//}
+//
+//.left-home {
+//  margin-left: 8px;
+//}
+//
+//mat-drawer-content {
+//  min-height: 80vh;
+//}
+//
+//
+//
+//
+//
+
+.app-view {
+  height: 100vh;
+  max-height: 100vh;
+  //width: 100vw;
+  max-width: 100vw;
+}

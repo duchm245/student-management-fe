@@ -1,0 +1,51 @@
+<div>
+  <div class="div_center">
+    <h3>Áp dụng từ ngày: {{ startDate | date: 'dd/MM/yyyy' }}</h3>
+
+    Lớp học:
+    <select (change)="changeClass($event)" [(ngModel)]="classId">
+      <option value="" [disabled]="true">- Lựa chọn -</option>
+      <option *ngFor="let clazz of listClassFromApi" value="{{clazz.id}}">
+        {{clazz.name}}
+      </option>
+    </select>
+
+    <button mat-mini-fab color="accent" (click)="openCreateTimeLineDialog(classId)"
+            class="my-custom-add-item">
+      <mat-icon>add</mat-icon>
+    </button>
+    <button mat-mini-fab color="accent" (click)="openEditTimeLineDialog(classId)"
+            class="my-custom-add-item" style="background: orange !important;">
+      <mat-icon>edit</mat-icon>
+    </button>
+
+  </div>
+
+  <br><br>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Tiết</th>
+      <th>Thứ 2</th>
+      <th>Thứ 3</th>
+      <th>Thứ 4</th>
+      <th>Thứ 5</th>
+      <th>Thứ 6</th>
+      <th>Thứ 7</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let tl of listTimeLineFromApi">
+      <td>{{tl.lesson}}</td>
+      <td>{{tl.monday}}</td>
+      <td>{{tl.tuesday}}</td>
+      <td>{{tl.wednesday}}</td>
+      <td>{{tl.thursday}}</td>
+      <td>{{tl.friday}}</td>
+      <td>{{tl.saturday}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

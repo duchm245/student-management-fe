@@ -1,0 +1,44 @@
+
+mat-toolbar.mct-color-height {
+  height: 88px;
+  background-color: #56a4fe;
+}
+
+h1 {
+  POSITION: absolute;
+  FONT-FAMILY: -webkit-body, serif;
+  COLOR: white;
+  FONT-SIZE: 18px;
+  TOP: 32px;
+  FONT-WEIGHT: bold;
+  LEFT: 8px;
+}
+
+#box_user {
+  position: absolute;
+  width: 406px;
+  min-height: 28px;
+  right: 0;
+  font-size: 12px;
+  border-bottom-left-radius: 75px;
+  background-color: White;
+  height: 28px;
+  top: 0;
+}
+
+.custom-style {
+  width: 406px;
+  text-align: right;
+  margin-top: -2px;
+}
+
+// Quy tắc cho phần tử span trong #box_user
+span {
+  color: blue;
+  font-size: 10px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  &.bold {
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,56 @@
+<!--<h2>Thông tin điểm thi</h2>-->
+Chọn lớp:
+<select (change)="changeClass($event)" [(ngModel)]="classId">
+  <option value="" [disabled]="true">- Lựa chọn -</option>
+  <option *ngFor="let clazz of listClassFromApi" value="{{clazz.id}}">
+    {{clazz.name}}
+  </option>
+</select>
+
+Chọn môn:
+<select (change)="changeSubject($event)" [(ngModel)]="subjectId">
+  <option value="" [disabled]="true">- Lựa chọn -</option>
+  <option *ngFor="let sub of listSubjectFromApi" value="{{sub.id}}">
+    {{sub.name}}
+  </option>
+</select>
+<br><br>
+
+<table>
+  <tr>
+    <th>STT</th>
+    <th>Tên học sinh</th>
+    <th>KT 15'</th>
+    <th>KT 45'</th>
+    <th>KT HK</th>
+    <th>TKMH</th>
+  </tr>
+
+  <ng-container *ngFor="let exam of listMark, let i = index">
+    <tr>
+      <td>{{(i + 1)}}</td>
+      <td>{{exam.studentName}}</td>
+      <td>{{exam.exam1.join(" | ")}}</td>
+      <td>{{exam.exam2.join(" | ")}}</td>
+      <td>{{exam.exam3.join(" | ")}}</td>
+      <td>{{exam.avg}}</td>
+    </tr>
+  </ng-container>
+
+  <!--  <ng-container *ngFor="let exam of listMark, let i = index">-->
+  <!--    <tr>-->
+  <!--      <td>{{(i + 1)}}</td>-->
+  <!--      <td>{{ exam.studentName }}</td>-->
+  <!--      <td>-->
+  <!--        <pre>{{ stringifyArray(exam.exam1) }}</pre>-->
+  <!--      </td>-->
+  <!--      <td>-->
+  <!--        <pre>{{ stringifyArray(exam.exam2) }}</pre>-->
+  <!--      </td>-->
+  <!--      <td>-->
+  <!--        <pre>{{ stringifyArray(exam.exam3) }}</pre>-->
+  <!--      </td>-->
+  <!--      <td>{{ exam.avg }}</td>-->
+  <!--    </tr>-->
+  <!--  </ng-container>-->
+</table>

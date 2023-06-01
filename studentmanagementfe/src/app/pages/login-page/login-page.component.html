@@ -1,0 +1,86 @@
+<div class="login-page" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="50px">
+  <mat-card fxFlexAlign="center" *ngIf="isLogin">
+    <mat-card-title style="padding-top: 20px;
+        padding-bottom: 10px;
+        background-color: #1e88e5;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        color: white;">
+      Login
+    </mat-card-title>
+    <mat-card-content>
+      <form (keyup.enter)="login(loginForm, email, password)" #loginForm='ngForm'>
+        <div class="col-md-12" style="padding-left:0px; padding-right: 0px;">
+          <mat-form-field>
+            <mat-label>Tên đăng nhập</mat-label>
+            <input matInput name="email" [(ngModel)]="email" required type="text"
+                   autocomplete="username email" #emailControl='ngModel' name='emailControl' />
+            <mat-error *ngIf="emailControl.invalid && (emailControl.dirty || emailControl.touched)">
+              <div *ngIf="emailControl.hasError('required')">
+                Tên đăng nhập là bắt buộc nhập
+              </div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-12" style="padding-left:0px; padding-right: 0px;">
+          <mat-form-field>
+            <mat-label>Mật khẩu</mat-label>
+            <input matInput placeholder="Password" name="password" [(ngModel)]="password" type="password"
+                   autocomplete="current-password" #passControl='ngModel' name='passControl' required/>
+            <mat-error *ngIf="passControl.invalid && (passControl.dirty || passControl.touched)">
+<!--              <div *ngIf="passControl.errors.required">-->
+              <div *ngIf="passControl.hasError('required')">
+                Mật khẩu là bắt buộc nhập
+              </div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </form>
+      <mat-error style="text-align: center;" [textContent]="errorMessage"></mat-error>
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="col-md-12" style="padding-left:0px; padding-right: 0px;">
+        <button mat-raised-button color="primary" class="login-field" (click)="login(loginForm,email, password)"
+                type="submit">
+          Đăng nhập
+        </button>
+      </div>
+      <div class="col-md-12" style="padding-left:0px; padding-right: 0px;">
+        <button mat-button (click)="forgetPass(true)"
+                style="float: right; padding-right: 2px;margin-right: 0px; color: blue;">Quên mật khẩu?</button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+  <mat-card fxFlexAlign="center" *ngIf="!isLogin">
+    <mat-card-title>
+      Quên mật khẩu
+    </mat-card-title>
+    <mat-card-content>
+      <form #forgotPassForm='ngForm'>
+        <mat-form-field class="login-field">
+          <input matInput placeholder="Email" required name="email" [(ngModel)]="email" type="email"
+                 autocomplete="username email" email #emailPass="ngModel" />
+          <mat-error *ngIf="emailPass.invalid && (emailPass.dirty || emailPass.touched)">
+            <div *ngIf="emailPass.hasError('required')">
+              Vui lòng nhập email
+            </div>
+            <div *ngIf="emailPass.hasError('email')">
+              Vui lòng nhập đúng định dạng email
+            </div>
+          </mat-error>
+        </mat-form-field>
+      </form>
+      <mat-error style="text-align: center;" [textContent]="errorMessage"></mat-error>
+      <label style="color: green;" *ngIf="successMessage != ''">{{successMessage}}</label>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" *ngIf="isShowReset" class="login-field" (click)="resetPassword()"
+              type="submit">
+        Gửi
+      </button>
+      <button mat-button (click)="forgetPass(false)"
+              style="float: right; padding-right: 2px;margin-right: 0px; color: blue;">Đăng nhập</button>
+      <button mat-button color="primary" (click)="resetForm()" *ngIf="!isShowReset">Gửi lại email</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

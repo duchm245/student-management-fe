@@ -1,0 +1,35 @@
+<div>
+  Lớp học:
+  <select (change)="changeClass($event)" [(ngModel)]="classId">
+    <option value="" [disabled]="true">- Lựa chọn -</option>
+    <option *ngFor="let clazz of listClassFromApi" value="{{clazz.id}}">
+      {{clazz.name}}
+    </option>
+  </select>
+
+  <br><br>
+
+  <table>
+    <thead>
+    <tr>
+      <th>STT</th>
+      <th>Môn thi</th>
+      <th>Ca thi</th>
+      <th>Ngày thi</th>
+      <th>Phòng thi</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let tl of listScheduleExamFromApi, let i = index">
+      <td>{{(i + 1)}}</td>
+      <td>{{tl.subjectName}}</td>
+      <td>{{tl.lesson}}</td>
+      <td>{{tl.date}}</td>
+      <td>{{tl.address}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+
+</div>
+

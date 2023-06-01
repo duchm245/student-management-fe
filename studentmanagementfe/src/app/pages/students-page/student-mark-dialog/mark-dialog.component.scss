@@ -1,0 +1,33 @@
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+}
+
+th {
+  color: white;
+  //font-weight: bold;
+  background-color: #297ee2;
+  padding: 8px;
+}
+
+
+tr:nth-child(even) {
+  background-color: #F0F8FF;
+}
+
+
+select, input, button {
+  margin-right: 10px; /* Giãn cách 10px giữa các liên kết trong mat-toolbar */
+}
+
+tr:hover {
+  background-color: #e4e6ef;
+}
+

@@ -1,0 +1,45 @@
+
+<br><br>
+<h3>BẢNG ĐIỂM CHI TIẾT:</h3>
+<span style="color: green">Tên học sinh: </span><span>{{studentName}}({{studentCode}})</span>
+<br><br>
+
+<table>
+  <tr>
+    <th>Tên môn học</th>
+    <th>Kiểm tra 15'</th>
+    <th>Kiểm tra 45'</th>
+    <th>Kiểm tra HK</th>
+    <th>Tổng kết môn học</th>
+  </tr>
+
+  <!--  <ng-container *ngFor="let exam of listExam">-->
+  <!--    <tr>-->
+  <!--      <td>{{exam.subjectName}}</td>-->
+  <!--      <td>{{exam.exam1 ? exam.exam1.join(" / ") : ''}}</td>-->
+  <!--      <td>{{exam.exam2 ? exam.exam2.join(" / ") : ''}}</td>-->
+  <!--      <td>{{exam.exam3 ? exam.exam3.join(" / ") : ''}}</td>-->
+  <!--      <td>{{exam.avg}}</td>-->
+  <!--    </tr>-->
+  <!--  </ng-container>-->
+
+  <ng-container *ngFor="let exam of listExam">
+    <tr>
+      <td>{{ exam.subjectName }}</td>
+      <td>
+        <pre>{{ stringifyArray(exam.exam1) }}</pre>
+      </td>
+      <td>
+        <pre>{{ stringifyArray(exam.exam2) }}</pre>
+      </td>
+      <td>
+        <pre>{{ stringifyArray(exam.exam3) }}</pre>
+      </td>
+      <td>{{ exam.avg }}</td>
+    </tr>
+  </ng-container>
+
+
+</table>
+
+

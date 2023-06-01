@@ -1,0 +1,134 @@
+a:hover {
+  background-color: #0072bc !important;
+}
+
+.page {
+  color: white;
+  padding: 0 1rem;
+  background: #f1f5f9;
+  &__box {
+    min-height: 120px;
+    background: #1e293b;
+    //background: #56a4fe;
+    margin: 0 -1rem;
+    font-size: 36px;
+  }
+  &__content {
+    min-height: calc(100vh - 178px);
+    border-radius: 10px;
+    margin-top: -2rem;
+    background: white;
+    color: black;
+    font-size: 2rem;
+    &-data {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+
+TABLE {
+  FONT-WEIGHT: normal;
+  FONT-SIZE: 11px;
+  MARGIN: 0px;
+  COLOR: black;
+  FONT-FAMILY: Tahoma, Arial, Verdana, Times New Roman, serif;
+  TEXT-DECORATION: none;
+  margin-top: 10px;
+}
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+TR {
+  FONT-WEIGHT: normal;
+  FONT-SIZE: 11px;
+  MARGIN: 0px;
+  COLOR: black;
+  FONT-FAMILY: Tahoma, Arial, Verdana, Times New Roman, serif;
+  TEXT-DECORATION: none;
+}
+
+TD {
+  FONT-WEIGHT: normal;
+  FONT-SIZE: 11px;
+  MARGIN: 0px;
+  COLOR: black;
+  FONT-FAMILY: Tahoma, Arial, Verdana, Times New Roman, serif;
+  TEXT-DECORATION: none;
+}
+
+.box_center {
+  margin-bottom: 15px;
+  background-color: white;
+  padding-bottom: 10px;
+  position: relative;
+  font-size: 12px;
+  line-height: 16px;
+  border-radius: 6px;
+}
+
+.box_center h4 {
+  background-color: #56a4fe;
+  height: 31px;
+  line-height: 31px;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 14px;
+  text-indent: 10px;
+  font-weight: bold;
+  font-family: Arial;
+  color: white;
+  border-radius: 6px;
+}
+
+.content {
+  min-height: 250px;
+  padding: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+//=================================================
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+mat-drawer {
+  //width: 260px;
+  width: 337px;
+  background: #fafafa;
+  border: none;
+}
+
+mat-drawer-container {
+  height: 100%;
+}
+
+.left-home {
+  margin-left: 8px;
+}
+
+mat-drawer-content {
+  min-height: 80vh;
+}
+
+
+
+
+
+

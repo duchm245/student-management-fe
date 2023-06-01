@@ -1,0 +1,66 @@
+<br>
+<h2>Chỉnh sửa thông tin lớp học</h2>
+<br>
+<div class="submit-form">
+  <div>
+    <form class="example-form" [formGroup]="newClazzForm">
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Tên lớp:</mat-label>
+        <input matInput name="name" formControlName="name" [errorStateMatcher]="matcher">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Mã lớp:</mat-label>
+        <input matInput name="code" formControlName="code">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Số lượng học sinh:</mat-label>
+        <input matInput name="number" formControlName="number">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Giới hạn học sinh:</mat-label>
+        <input matInput name="limitClass" formControlName="limitClass">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Hình thức:</mat-label>
+        <input matInput name="type" formControlName="type">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Trạng thái:</mat-label>
+        <input matInput name="status" formControlName="status">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Phòng học:</mat-label>
+        <input matInput name="abc" formControlName="address">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Ngày bắt đầu:</mat-label>
+        <input matInput name="startDate" formControlName="startDate" [errorStateMatcher]="matcher"
+               [matDatepicker]="picker1">
+        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Ngày kết thúc:</mat-label>
+        <input matInput name="endDate" formControlName="endDate" [errorStateMatcher]="matcher"
+               [matDatepicker]="picker2">
+        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+        <mat-error *ngIf="newClazzForm.hasError('dateError')">Ngày kết thúc phải lớn hơn ngày bắt đầu</mat-error>
+      </mat-form-field>
+    </form>
+    <button (click)="updateClazz()" mat-button mat-raised-button color="primary" [disabled]="!newClazzForm.valid">
+      Xác nhận
+    </button>
+    <button mat-raised-button (click)="closeDialog()">Đóng</button>
+  </div>
+</div>
+

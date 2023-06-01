@@ -1,0 +1,32 @@
+<mat-nav-list class="position_fix">
+  <div id="search-box">
+    <div class="custom-style-search">
+      <input name="txtSearch" type="text" class="txt-search">
+      <button class="btnSearch" href=""> Tìm kiếm</button></div>
+  </div>
+  <br>
+  <br>
+  <p>DANH MỤC CHÍNH</p>
+  <div class="custom-style-list-item">
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/getStudent">
+      <mat-icon class="custom-icon">laptop</mat-icon>
+      <span>Danh sách học sinh</span>
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/clazz">
+      <mat-icon class="custom-icon">laptop</mat-icon>
+      <span>Thông tin lớp học</span>
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/timeLine">
+      <mat-icon class="custom-icon">search</mat-icon>
+      <span>Thời khóa biểu</span>
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/scheduleExam">
+      <mat-icon class="custom-icon">search</mat-icon>
+      <span>Tra cứu lịch thi</span>
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/mark">
+      <mat-icon class="custom-icon">search</mat-icon>
+      <span>Tra cứu điểm</span>
+    </a>
+  </div>
+</mat-nav-list>

@@ -1,0 +1,42 @@
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #E0E0E0;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  color: white;
+  background-color: #2467ae;
+}
+
+tr:nth-child(odd) {
+  background-color: #eee;
+}
+
+tr:nth-child(even) {
+  background-color: white;
+}
+
+tr:hover {
+  background-color: #FFB266;
+  background-color:rgba(255, 99, 71, 0.5);
+}
+
+//.div_center {
+//  display: flex;
+//  flex-direction: column;
+//  justify-content: center;
+//  align-items: center;
+//  margin: auto;
+//  text-align: center;
+//  width: 50%;
+//  height: 50%;
+//}
+

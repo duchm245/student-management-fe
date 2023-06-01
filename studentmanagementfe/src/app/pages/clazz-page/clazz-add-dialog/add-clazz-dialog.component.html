@@ -1,0 +1,84 @@
+<br>
+<h2>Thêm lớp học</h2>
+
+<div class="submit-form">
+  <div *ngIf="!submitted">
+    <form class="example-form" [formGroup]="newClazzForm">
+      <mat-form-field class="example-full-width">
+        <mat-label>Tên lớp:</mat-label>
+        <input matInput name="name" formControlName="name" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="newClazzForm.controls.name.hasError('required')">
+          Tên lớp là <strong>bắt buộc</strong>
+        </mat-error>
+        <mat-error *ngIf="newClazzForm.controls.name.hasError('pattern')">
+          Không chứa ký tự đặc biệt
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Mã lớp</mat-label>
+        <input matInput name="code" required formControlName="code" [errorStateMatcher]="matcher">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Số lượng HS</mat-label>
+        <input matInput name="number" formControlName="number" [errorStateMatcher]="matcher">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Giới hạn HS</mat-label>
+        <input matInput name="limitClazz" formControlName="limitClazz" [errorStateMatcher]="matcher">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Hình thức</mat-label>
+        <mat-select name="type" formControlName="type" [errorStateMatcher]="matcher">
+          <mat-option *ngFor="let type of types" [value]="type.value">
+            {{type.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Trạng thái</mat-label>
+        <mat-select name="status" formControlName="status" [errorStateMatcher]="matcher">
+          <mat-option *ngFor="let st of statusArr" [value]="st.value">
+            {{st.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label></mat-label>
+        <mat-label>Mô tả</mat-label>
+        <input matInput name="description" formControlName="description" [errorStateMatcher]="matcher">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Ngày bắt đầu</mat-label>
+        <input matInput name="startDate" formControlName="startDate" [errorStateMatcher]="matcher"
+               [matDatepicker]="startDatePicker">
+        <mat-datepicker-toggle matIconSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #startDatePicker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Ngày kết thúc</mat-label>
+        <input matInput name="endDate" formControlName="endDate" [errorStateMatcher]="matcher"
+               [matDatepicker]="endDatePicker">
+        <mat-datepicker-toggle matIconSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #endDatePicker></mat-datepicker>
+        <mat-error *ngIf="newClazzForm.hasError('dateError')">Ngày kết thúc phải lớn hơn ngày bắt đầu</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Phòng học:</mat-label>
+        <input matInput name="address" formControlName="address">
+      </mat-form-field>
+    </form>
+    <button (click)="addClazz()" mat-button mat-raised-button color="primary" [disabled]="!newClazzForm.valid">
+      Thêm lớp
+    </button>
+    <button mat-raised-button (click)="closeDialog()">Đóng</button>
+  </div>
+</div>

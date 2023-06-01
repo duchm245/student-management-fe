@@ -1,0 +1,91 @@
+<h2>Chỉnh sửa thông tin học sinh</h2>
+<div class="submit-form">
+  <div *ngIf="!submitted">
+    <form class="example-form" [formGroup]="newStudentForm">
+      <mat-form-field class="example-full-width">
+        <mat-label>First Name:</mat-label>
+        <input matInput name="firstName" formControlName="firstName" [errorStateMatcher]="matcher" required
+               placeholder="Ex. Nguyen">
+        <mat-error *ngIf="newStudentForm.controls.firstName.hasError('required')">
+          Last name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Last Name:</mat-label>
+        <input matInput name="lastName" formControlName="lastName" [errorStateMatcher]="matcher">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Code:</mat-label>
+        <input matInput name="code" formControlName="code" [errorStateMatcher]="matcher">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Gender</mat-label>
+        <mat-select name="gender" formControlName="gender" [errorStateMatcher]="matcher">
+          <mat-option *ngFor="let gender of genders" [value]="gender.viewValue">
+            {{gender.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput name="birthday" formControlName="birthday" [errorStateMatcher]="matcher"
+               [matDatepicker]="picker">
+<!--        <mat-hint>MM/DD/YYYY</mat-hint>-->
+        <mat-error>
+          Please enter a valid MM/DD/YYYY
+        </mat-error>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput name="email" formControlName="email" [errorStateMatcher]="matcher">
+        <mat-error
+          *ngIf="newStudentForm.controls.email.hasError('email') && !newStudentForm.controls.email.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Phone:</mat-label>
+        <input matInput name="phone" formControlName="phone" [errorStateMatcher]="matcher">
+        <mat-error
+          *ngIf="newStudentForm.controls.phone.hasError('pattern') && !newStudentForm.controls.phone.hasError('required')">
+          Please enter a valid phone number (10 digits)
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Address:</mat-label>
+        <input matInput name="address" formControlName="address">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Status</mat-label>
+        <mat-select name="status" formControlName="status" [errorStateMatcher]="matcher">
+          <mat-option *ngFor="let status of statuses" [value]="status.viewValue">
+            {{status.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+
+    <br>
+    <div style="text-align: center;">
+      <button (click)="updateStudent()" mat-button mat-raised-button color="warn"
+              style="display: inline-block; margin-right: 10px;"
+              [disabled]="!newStudentForm.valid">Xác nhận
+      </button>
+      <button mat-raised-button color="primary" style="display: inline-block;"
+              [routerLink]="['/getStudent']">Hủy
+      </button>
+    </div>
+  </div>
+</div>
+

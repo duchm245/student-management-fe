@@ -1,0 +1,91 @@
+<h3>THÊM THỜI KHÓA BIỂU</h3>
+
+<div class="submit-form">
+  <div *ngIf="!submitted">
+    <form class="example-form" [formGroup]="newSelectClazzForm">
+      <mat-form-field class="example-full-width">
+        <mat-label>Chọn lớp:</mat-label>
+        <mat-select name="clazzId" formControlName="clazzId" [errorStateMatcher]="matcher">
+          <mat-option [value]="0">Chọn lớp</mat-option>
+          <mat-option *ngFor="let clazz of listClassFromApi" [value]="clazz.id">
+            {{clazz.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div>
+    <form class="example-form" [formGroup]="newTimeLineForm">
+      <mat-form-field class="example-full-width">
+        <mat-label>Chọn thứ:</mat-label>
+        <mat-select name="day" formControlName="day" [errorStateMatcher]="matcher">
+          <mat-option *ngFor="let day of days" [value]="day.value">
+            {{day.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+
+      Tiết 1:
+      <mat-form-field class="example-full-width">
+        <mat-label>Chọn môn:</mat-label>
+        <mat-select name="subject" formControlName="subject1" [errorStateMatcher]="matcher">
+          <mat-option *ngFor="let sub of subjectsOfDayFromApi" [value]="sub.id">
+            {{sub.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+
+      Tiết 2:
+      <mat-form-field class="example-full-width">
+        <mat-label>Chọn môn:</mat-label>
+        <mat-select name="subject" formControlName="subject2" [errorStateMatcher]="matcher">
+          <mat-option *ngFor="let sub of subjectsOfDayFromApi" [value]="sub.id">
+            {{sub.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+
+      Tiết 3:
+      <mat-form-field class="example-full-width">
+        <mat-label>Chọn môn:</mat-label>
+        <mat-select name="subject" formControlName="subject3" [errorStateMatcher]="matcher">
+          <mat-option *ngFor="let sub of subjectsOfDayFromApi" [value]="sub.id">
+            {{sub.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+
+      Tiết 4:
+      <mat-form-field class="example-full-width">
+        <mat-label>Chọn môn:</mat-label>
+        <mat-select name="subject" formControlName="subject4" [errorStateMatcher]="matcher">
+          <mat-option *ngFor="let sub of subjectsOfDayFromApi" [value]="sub.id">
+            {{sub.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+
+      Tiết 5:
+      <mat-form-field class="example-full-width">
+        <mat-label>Chọn môn:</mat-label>
+        <mat-select name="subject" formControlName="subject5" [errorStateMatcher]="matcher">
+          <mat-option *ngFor="let sub of subjectsOfDayFromApi" [value]="sub.id">
+            {{sub.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+    </form>
+    <button (click)="createTimeLine()" mat-button mat-raised-button color="primary" [disabled]="!newTimeLineForm.valid">
+      Xác nhận
+    </button>
+    <button mat-raised-button (click)="closeDialog()">Đóng</button>
+  </div>
+</div>
+

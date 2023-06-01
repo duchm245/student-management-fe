@@ -1,0 +1,83 @@
+<div>
+  Lọc danh sách:
+  <select (change)="changeStatus($event)" [(ngModel)]="inputSearchStatus">
+    <option value="2">Trạng thái</option>
+    <option value="1">Hoạt động</option>
+    <option value="0">Không hoạt động</option>
+  </select>
+  <select (change)="changeSort($event)" [(ngModel)]="sortSelected">
+    <option value="id" [disabled]="false">Sắp xếp</option>
+    <option value="name">Theo tên</option>
+    <option value="code">Theo mã lớp</option>
+  </select>
+  <input [(ngModel)]="inputSearchName" placeholder="Tìm kiếm theo tên"/>
+
+  <button (click)="search()" class="btnSearch">Tìm kiếm</button>
+  <button mat-mini-fab color="accent" (click)="openAddClazzDialog()"
+          class="my-custom-add-item">
+    <mat-icon>add</mat-icon>
+  </button>
+  <br><br>
+  <div>
+    <table>
+      <tr>
+        <th>STT</th>
+        <th>Tên lớp</th>
+        <th>Mã lớp</th>
+        <th>Số lượng</th>
+        <th>Giới hạn</th>
+        <th>Hình thức</th>
+        <th>Trạng thái</th>
+        <th>Phòng học</th>
+        <th>Ngày bắt đầu</th>
+        <th>Ngày kết thúc</th>
+        <th>Hành động</th>
+      </tr>
+      <tr *ngFor="let clazz of listClazzFromApi | paginate: {
+      itemsPerPage: pageSize,
+      currentPage: page,
+      totalItems: count
+      }; let i = index ">
+
+        <td>{{(i + page * pageSize - pageSize + 1)}}</td>
+        <td>{{clazz.name}}</td>
+        <td>{{clazz.code}}</td>
+        <td>{{clazz.number}}</td>
+        <td>{{clazz.limitClass}}</td>
+        <td>{{clazz.type}}</td>
+        <td>{{clazz.status}}</td>
+        <td>{{clazz.address}}</td>
+        <td>{{clazz.startDate}}</td>
+        <td>{{clazz.endDate}}</td>
+        <td style="width: 160px;">
+          <button mat-icon-button color="primary" (click)="openEditClazzDialog(clazz.id)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteClazz(clazz.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="custom-inline-page">
+    <div style="padding-bottom:18px ">
+      Số bản ghi
+      <select (change)="handlePageSizeChange($event)">
+        <option *ngFor="let size of pageSizes" [ngValue]="size">
+          {{ size }}
+        </option>
+      </select>
+    </div>
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      [responsive]="true"
+      (pageChange)="handlePageChange($event)"
+    ></pagination-controls>
+  </div>
+
+</div>
+
+

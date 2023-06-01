@@ -1,0 +1,80 @@
+<h2>Thêm mới học sinh</h2>
+<div class="submit-form">
+  <div *ngIf="!submitted">
+    <form class="example-form" [formGroup]="newStudentForm">
+      <mat-form-field class="example-full-width">
+        <mat-label>Họ học sinh:</mat-label>
+        <input matInput name="firstName" formControlName="firstName" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="newStudentForm.controls.firstName.hasError('pattern')">
+          Tên không được phép chứa ký tự đặc biệt!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Tên học sinh:</mat-label>
+        <input matInput name="lastName" formControlName="lastName" [errorStateMatcher]="matcher">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Mã học sinh:</mat-label>
+        <input matInput name="code" formControlName="code" [errorStateMatcher]="matcher">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Giới tính</mat-label>
+        <mat-select name="gender" formControlName="gender" [errorStateMatcher]="matcher">
+          <mat-option *ngFor="let gender of genders" [value]="gender.value">
+            {{gender.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Ngày sinh</mat-label>
+        <input matInput name="birthday" formControlName="birthday" [errorStateMatcher]="matcher"
+               [matDatepicker]="picker">
+        <!--        <mat-hint>MM/DD/YYYY</mat-hint>-->
+        <mat-error>
+          Vui lòng nhập theo định dạng MM/DD/YYYY
+        </mat-error>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <!--      có thể dùng (keyup)="checkEmailExist" để gọi hàm mỗi khi nhấn xong một phím-->
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput name="email" formControlName="email" [errorStateMatcher]="matcher"
+               (change)="checkEmailExist()">
+        <mat-error *ngIf="emailExists">
+          Địa chỉ email đã được sử dụng. Vui lòng sử dụng email khác
+        </mat-error>
+        <mat-error *ngIf="newStudentForm.controls.email.hasError('pattern')">
+          Vui lòng nhập đúng định dạng email
+        </mat-error>
+      </mat-form-field>
+      <p>{{emailExists ? 'Email đã tồn tại, vui lòng sử dụng email khác' : ''}}</p>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Số điện thoại:</mat-label>
+        <input matInput name="phone" formControlName="phone">
+        <mat-error
+          *ngIf="newStudentForm.controls.phone.hasError('pattern') && !newStudentForm.controls.phone.hasError('required')">
+          Vui lòng nhập đúng định dạng (gồm 10 số)
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Địa chỉ:</mat-label>
+        <input matInput name="address" formControlName="address">
+      </mat-form-field>
+    </form>
+
+    <button (click)="saveStudent()" mat-button mat-raised-button color="primary" [disabled]="!newStudentForm.valid">
+      Submit
+    </button>
+
+  </div>
+</div>
+
